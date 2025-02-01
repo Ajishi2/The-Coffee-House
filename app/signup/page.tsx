@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
+import { toast } from "react-hot-toast"
 
 export default function Signup() {
   const [email, setEmail] = useState("")
@@ -26,6 +27,8 @@ export default function Signup() {
         setError("Failed to create account")
       }
     } catch (err) {
+      console.error("Signup failed:", err)
+      toast.error("Registration failed")
       setError("An error occurred. Please try again.")
     }
   }

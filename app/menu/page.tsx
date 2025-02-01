@@ -2,10 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { notFound } from "next/navigation"
-import { useCart } from "../contexts/CartContext"
-import { useState } from "react"
-import { toast } from "react-hot-toast"
+import { useCart } from "@/contexts/CartContext"
 
 const menuItems = [
   {
@@ -142,27 +139,30 @@ export default function MenuPage() {
         {menuItems.map((coffee) => (
           <div key={coffee.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <Link href={`/coffee/${coffee.id}`} className="block">
-              <div className="relative h-40 w-full overflow-hidden">
+              <div className="relative h-48 w-full overflow-hidden">
                 <Image
                   src={coffee.image}
                   alt={coffee.name}
                   fill
-                  className="object-cover"
+                  priority
+                  className="object-cover aspect-square"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </Link>
             <div className="p-3">
               <div className="flex justify-between items-center">
-                <h2 className="text-lg font-bold text-gray-900">{coffee.name}</h2>
+                <h2 className="text-xl font-bold">{coffee.name}</h2>
                 <button 
                   onClick={() => addToCart({ ...coffee, quantity: 1 })}
-                  className="bg-brown-600 text-white px-3 py-1 rounded text-sm hover:bg-brown-700"
+                  className="bg-brown-600 text-white px-3 py-1.5 rounded text-sm hover:bg-brown-700"
                 >
                   Add to Cart
                 </button>
               </div>
-              <div className="mt-2 flex justify-end">
-                <span className="text-base font-semibold text-gray-900">₹{coffee.price}</span>
+              <div className="mt-1.5 flex justify-between items-center">
+                <span className="text-gray-600 text-sm">{coffee.description}</span>
+                <span className="text-base font-bold">₹{coffee.price}</span>
               </div>
             </div>
           </div>

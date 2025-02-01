@@ -6,10 +6,11 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
+import { toast } from "react-hot-toast"
 
 export default function Login() {
   const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [, setPassword] = useState("")
   const [error, setError] = useState("")
   const { login } = useAuth()
   const router = useRouter()
@@ -18,14 +19,15 @@ export default function Login() {
     e.preventDefault()
     setError("")
     try {
-      const success = await login(email, password)
+      const success = await login(email, "")
       if (success) {
         router.push("/")
       } else {
         setError("Invalid email or password")
       }
     } catch (err) {
-      setError("An error occurred. Please try again.")
+      console.error("Login failed:", err)
+      toast.error("Invalid credentials")
     }
   }
 
@@ -48,7 +50,7 @@ export default function Login() {
             <Input
               type="password"
               id="password"
-              value={password}
+              value={""}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
@@ -58,7 +60,7 @@ export default function Login() {
           </Button>
         </form>
         <p className="mt-4 text-center">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/signup" className="text-brown-500 hover:text-brown-600">
             Sign up
           </Link>

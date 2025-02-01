@@ -29,6 +29,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [])
 
   const login = async (email: string, password: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _ = password // Temporary placeholder
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
 

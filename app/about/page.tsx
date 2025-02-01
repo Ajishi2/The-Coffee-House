@@ -25,7 +25,7 @@ export default function About() {
             environmentally friendly cultivation methods.
           </p>
           <p className="text-gray-600">
-            At The Coffee House, we're not just serving coffee; we're creating a community. We host regular events,
+            At The Coffee House, we&apos;re not just serving coffee; we&apos;re creating a community. We host regular events,
             workshops, and tastings to share our passion for coffee with our customers and help them explore the rich
             world of coffee.
           </p>
