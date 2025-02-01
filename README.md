@@ -1,6 +1,6 @@
-# ☕️ Brew Haven - Modern Coffee Shop Experience
+ ☕️ The Coffee House 
+<img width="1701" alt="image" src="https://github.com/user-attachments/assets/1664754a-f627-4120-8f94-d50593c8a36f" />#
 
-![Project Preview](/public/preview.png) <!-- Add your screenshot path here -->
 
 A modern coffee shop web application with seamless ordering, authentication, and cart management.
 
